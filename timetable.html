@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Timetable - CSE Department</title>
+    <!-- Bootstrap & Animate CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0ecff, #d3e0f5);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        h1 {
+            font-weight: 700;
+        }
+        
+        .nav-tabs {
+            background-color: #f0f4ff;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #333;
+            font-weight: 600;
+            border-radius: 6px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            background-color: #dceeff;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: white !important;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+        }
+        
+        .timetable-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 20px;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Batch-wise Class Timetables</h1>
+
+        <ul class="nav nav-tabs animate__animated animate__fadeInUp" id="batchTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="b21-tab" data-bs-toggle="tab" data-bs-target="#b21" type="button" role="tab">Batch 21</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="b22-tab" data-bs-toggle="tab" data-bs-target="#b22" type="button" role="tab">Batch 22</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="b23-tab" data-bs-toggle="tab" data-bs-target="#b23" type="button" role="tab">Batch 23</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="b24-tab" data-bs-toggle="tab" data-bs-target="#b24" type="button" role="tab">Batch 24</button>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4">
+            <div class="tab-pane fade show active" id="b21" role="tabpanel">
+                <img src="timetable21.jpg" class="timetable-img" alt="Batch 21 Timetable">
+            </div>
+            <div class="tab-pane fade" id="b22" role="tabpanel">
+                <img src="timetable22.jpg" class="timetable-img" alt="Batch 22 Timetable">
+            </div>
+            <div class="tab-pane fade" id="b23" role="tabpanel">
+                <img src="timetable23.jpg" class="timetable-img" alt="Batch 23 Timetable">
+            </div>
+            <div class="tab-pane fade" id="b24" role="tabpanel">
+                <img src="timetable24.jpg" class="timetable-img" alt="Batch 24 Timetable">
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
