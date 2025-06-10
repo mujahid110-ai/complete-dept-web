@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Computer System Engineering</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- boostrap for explore our departmentS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;500&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+
+</head>
+
+<body>
+
+
+    <!-- slides -->
+
+    <style>
+        .hero-slide {
+            position: relative;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        /* Soft black overlay on the slide itself */
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            /* black shadow overlay */
+            z-index: 1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 55%;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            z-index: 2;
+            /* above shadow */
+            animation: slideIn 1s ease-out;
+        }
+        
+        .hero-overlay h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 4.2rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 0 6px 18px rgba(8, 8, 8, 0.6);
+            /* clearer on dark overlay */
+        }
+        
+        .hero-overlay p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #e2dddd;
+            max-width: 650px;
+            line-height: 1.9;
+            margin-bottom: 40px;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .hero-overlay p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #dad3d3;
+            max-width: 650px;
+            line-height: 1.9;
+            margin-bottom: 40px;
+        }
+        
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Arrows */
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            padding: 24px;
+        }
+        
+        .hero-overlay p {
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .hero-overlay h1 {
+                font-size: 2.5rem;
+            }
+            .hero-overlay p {
+                font-size: 1.1rem;
+            }
+        }
+        /* Animation */
+        
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+
+    <!-- NAVBAR STARTS -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top animate__animated animate__fadeInDown">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="Adobe.png" alt="University Logo" style="height: 40px; margin-right: 10px;" /> Computer System Engineering
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#explore">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#explore">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#explore">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#explore">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#explore">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR ENDS -->
+
+
+    <!-- Hero Section with Background Slideshow -->
+    <!-- Hero Section Carousel -->
+    <!-- Hero Section with Background Slideshow -->
+    <section id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <!-- Slide 1 -->
+
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background-image: url('department.jpg');">
+                    <div class="hero-overlay text-center text-white">
+                        <h1 class="animate__animated animate__fadeInDown">Computer Systems</h1>
+                        <p class="animate__animated animate__fadeInUp">Welcome to Computer Systems Engineering Department. The Department at QUEST Nawabshah equips students with the knowledge and skills needed to excel in the rapidly evolving tech industry. Through accredited programs, modern labs,
+                            and expert faculty, we blend theory with practical engineering to prepare future-ready professionals.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background-image: url('entrance.jpg');">
+                    <div class="hero-overlay text-center text-white">
+                        <h1 class="animate__animated animate__fadeInDown">Computer Systems</h1>
+                        <p class="animate__animated animate__fadeInUp">Main Entrance of the CSE Department. The main entrance of the Computer Systems Engineering Department stands as a gateway to innovation, learning, and academic growth for students and faculty alike.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background-image: url('coridor.jpg');">
+                    <div class="hero-overlay text-center text-white">
+                        <h1 class="animate__animated animate__fadeInDown">Computer Systems</h1>
+                        <p class="animate__animated animate__fadeInUp">Inside the CSE Department Corridor. The corridor offers a clean, professional, and welcoming academic atmosphere, reflecting the department’s commitment to discipline and excellence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item active">
+                <div class="hero-slide" style="background-image: url('pic.jpg');">
+                    <div class="hero-overlay text-center text-white">
+                        <h1 class="animate__animated animate__fadeInDown">Computer Systems</h1>
+                        <p class="animate__animated animate__fadeInUp">Innovating the Future with Computer Systems Engineering. The Department of Computer Systems Engineering at QUEST is dedicated to shaping future innovators through cutting-edge education, advanced research, and a focus on real-world
+                            problem-solving.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background-image: url('group\ c\ cube.jpg');">
+                    <div class="hero-overlay text-center text-white">
+                        <h1 class="animate__animated animate__fadeInDown">Computer Systems</h1>
+                        <p class="animate__animated animate__fadeInUp">C CUBE Team – United for Innovation. A proud moment captured with the dedicated C CUBE team, whose hard work, collaboration, and passion made the event a grand success. Together, they represent the spirit of innovation and excellence
+                            at the Department of Computer Systems Engineering.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background-image: url('vcs.jpg');">
+                    <div class="hero-overlay text-center text-white">
+                        <h1 class="animate__animated animate__fadeInDown">Computer Systems</h1>
+                        <p class="animate__animated animate__fadeInUp">Events and Activities. The department frequently hosts events, workshops, and competitions that encourage creativity, teamwork, and problem-solving among students.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background-image: url('lab.jpg');">
+                    <div class="hero-overlay text-center text-white">
+                        <h1 class="animate__animated animate__fadeInDown">Computer Systems</h1>
+                        <p class="animate__animated animate__fadeInUp">Modern Labs and Learning Spaces. Equipped with state-of-the-art technology, our labs support advanced learning and hands-on experience for aspiring engineers.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+
+
+
+
+    </section>
+
+
+
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content text-white">
+            <h1>Welcome to Quaid-e-Awam University</h1>
+            <p>Engineering the Future Through Innovation and Excellence</p>
+        </div>
+    </section>
+
+    <!-- chairmain -->
+    <!-- Chairman's Message Section -->
+    <!-- AOS Library for Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Chairman's Message Section -->
+    <!-- Chairman's Message Section -->
+    <!-- Chairman's Message Section -->
+    <section class="py-5 bg-white">
+        <style>
+            @keyframes fadeSlideLeft {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            @keyframes fadeSlideRight {
+                0% {
+                    opacity: 0;
+                    transform: translateX(50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            .animate-left {
+                animation: fadeSlideLeft 1s ease-out forwards;
+            }
+            
+            .animate-right {
+                animation: fadeSlideRight 1s ease-out forwards;
+                animation-delay: 0.3s;
+            }
+            
+            .invisible {
+                opacity: 0;
+            }
+        </style>
+
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- Chairman's Image -->
+                <div class="col-md-4 text-center mb-4 mb-md-0 invisible animate-left">
+                    <img src="chairman.jpeg" alt="Chairman" class="img-fluid rounded shadow" style="max-height: 300px;">
+                </div>
+
+                <!-- Chairman's Message -->
+                <div class="col-md-8 invisible animate-right">
+                    <h2 class="mb-3 fw-bold text-primary">Chairman's Message</h2>
+                    <p class="lead fst-italic text-muted">
+                        <i class="bi bi-quote text-primary fs-1"></i> Our dynamic Computer Systems Engineering Department is rapidly expanding, known for innovation in research, education, and industry engagement. With diverse learning experiences, we've
+                        achieved remarkable growth in faculty, facilities, and programs. Our mission: top-notch Computer Systems Engineering education, impactful research, and enhancing Pakistan's prosperity.
+                        <i class="bi bi-quote text-primary fs-1"></i>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+            // Trigger animation when content is loaded
+            window.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.invisible').forEach(el => {
+                    el.classList.remove('invisible');
+                });
+            });
+        </script>
+    </section>
+
+
+
+
+    <!-- Separator -->
+    <div class="container my-5">
+        <hr class="border-primary border-2 opacity-75">
+
+    </div>
+
+
+
+
+
+
+    <!-- buttons -->
+    <!-- Section: Quick Navigation -->
+    <style>
+        #explore {
+            background: linear-gradient(to right, #f0f4f8, #e8f0fe);
+        }
+        
+        #explore h2 {
+            color: #003366;
+            font-weight: 700;
+        }
+        
+        .explore-btn {
+            border: none;
+            color: white !important;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .explore-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-about {
+            background-color: #007bff;
+        }
+        /* Bootstrap Blue */
+        
+        .btn-faculty {
+            background-color: #6c757d;
+        }
+        /* Bootstrap Gray */
+        
+        .btn-programs {
+            background-color: #17a2b8;
+        }
+        /* Bootstrap Cyan */
+        
+        .btn-contact {
+            background-color: #343a40;
+        }
+        /* Bootstrap Dark */
+        
+        .btn-events {
+            background-color: #28a745;
+        }
+        /* Bootstrap Green */
+        
+        .btn-timetable {
+            background-color: #ffc107;
+            color: #212529 !important;
+        }
+        /* Bootstrap Yellow */
+        
+        .btn-results {
+            background-color: #dc3545;
+        }
+        /* Bootstrap Red */
+    </style>
+
+    <section id="explore" class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-4 animate__animated animate__fadeInDown">Explore Our Department</h2>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="about.html" class="btn w-100 rounded-pill py-3 fs-5 explore-btn btn-about">
+          About Us
+        </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
+                    <a href="faculty.html" class="btn w-100 rounded-pill py-3 fs-5 explore-btn btn-faculty">
+          Faculty
+        </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="programms.html" class="btn w-100 rounded-pill py-3 fs-5 explore-btn btn-programs">
+          Programs
+        </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
+                    <a href="contact.html" class="btn w-100 rounded-pill py-3 fs-5 explore-btn btn-contact">
+          Contact
+        </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                    <a href="events.html" class="btn w-100 rounded-pill py-3 fs-5 explore-btn btn-events">
+          Events
+        </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="350">
+                    <a href="timetable.html" class="btn w-100 rounded-pill py-3 fs-5 explore-btn btn-timetable">
+          Timetable
+        </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                    <a href="results.html" class="btn w-100 rounded-pill py-3 fs-5 explore-btn btn-results">
+          Results
+        </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Us -->
+    <section id="about-us" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="lead">Quaid-e-Awam University of Engineering, Science & Technology (QUEST), Nawabshah, is committed to imparting quality education in engineering, science, and technology to prepare students to serve the nation with dedication and distinction.</p>
+        </div>
+    </section>
+
+    <!-- Programs and Faculty remain unchanged -->
+    <!-- Contact -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title mb-4">Contact Information</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Address</h5>
+                    <p>QUEST, Nawabshah, Sindh, Pakistan</p>
+                    <h5>Phone</h5>
+                    <p><a href="tel:+92244493733">+92 244 493733</a></p>
+                    <h5>Email</h5>
+                    <p><a href="mailto:registrar@quest.edu.pk">registrar@quest.edu.pk</a></p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Social Media</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="mt-auto">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-3 mb-md-0">
+                <a href="#hero" class="me-3">Home</a>
+                <a href="#about-us" class="me-3">About Us</a>
+                <a href="#programs" class="me-3">Programs</a>
+                <a href="#faculty" class="me-3">Faculty</a>
+                <a href="#contact" class="me-3">Contact</a>
+            </div>
+            <div>
+                <span>&copy; 2025 Quaid-e-Awam University. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include AOS JS before closing </body> -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+
+
+</html>

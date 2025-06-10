@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            /* Light grey background */
+            color: #343a40;
+            /* Dark text */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        
+        .display-4 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .text-danger {
+            color: #dc3545 !important;
+            /* Bootstrap red */
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-4 text-danger">Something Went Wrong!</h1>
+        <p class="lead">There was an issue sending your message. Please try again later.</p>
+        <p class="lead">If the problem persists, please contact the department directly at cse@quest.edu.pk</p>
+        <a href="index.html" class="btn btn-primary mt-3">Go Back Home</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Faculty - Department of Computer Systems Engineering</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+         :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            border: none;
+            margin-bottom: 1.5rem;
+            background-color: white;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .profile-pic-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .profile-pic {
+            transform: scale(1.05);
+        }
+        
+        .designation-badge {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-body {
+            padding: 1.75rem;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        
+        .designation {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .qualification,
+        .contact-info {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .qualification strong,
+        .contact-info strong {
+            color: var(--primary-color);
+        }
+        
+        .contact-info a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.2s ease-in-out;
+            word-break: break-all;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .contact-icon {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+            width: 18px;
+            text-align: center;
+        }
+        
+        .on-leave {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .filter-buttons {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .filter-btn {
+            border: 2px solid var(--secondary-color);
+            background: transparent;
+            color: var(--secondary-color);
+            padding: 0.375rem 0.75rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .card {
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        /* Animation for cards */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        /* Delay animations for staggered effect */
+        
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        .card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        
+        .card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+        
+        .card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+        
+        .card:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+        
+        .card:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+        
+        .card:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+        
+        .card:nth-child(10) {
+            animation-delay: 1.0s;
+        }
+        
+        .card:nth-child(11) {
+            animation-delay: 1.1s;
+        }
+        
+        .card:nth-child(12) {
+            animation-delay: 1.2s;
+        }
+        
+        .card:nth-child(13) {
+            animation-delay: 1.3s;
+        }
+        
+        .card:nth-child(14) {
+            animation-delay: 1.4s;
+        }
+        
+        .card:nth-child(15) {
+            animation-delay: 1.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">Department of Computer Systems Engineering</h1>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Meet Our Esteemed Faculty Members</p>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <h2 class="section-title animate__animated animate__fadeIn">Faculty Members</h2>
+
+        <div class="filter-buttons animate__animated animate__fadeIn animate__delay-1s">
+            <button class="filter-btn active" data-filter="all">All Faculty</button>
+            <button class="filter-btn" data-filter="professor">Professors</button>
+            <button class="filter-btn" data-filter="associate">Associate Professors</button>
+            <button class="filter-btn" data-filter="assistant">Assistant Professors</button>
+            <button class="filter-btn" data-filter="lecturer">Lecturers</button>
+            <button class="filter-btn" data-filter="lab">Lab Engineers</button>
+        </div>
+
+        <div class="row g-4 faculty-container">
+            <!-- Faculty Member: Prof. Dr. Ubaidullah Rajput -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="professor">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="chairman.jpeg" alt="Prof. Dr. Ubaidullah Rajput" class="profile-pic">
+                        <span class="designation-badge">Chairman</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Prof. Dr. Ubaidullah Rajput</h3>
+                        <p class="designation">Chairman / Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> PhD (Hanyang University, South Korea), M.E (NUST), B.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:ubaidullah@quest.edu.pk">ubaidullah@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 3185</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Prof. Dr. Intesab Hussain Sadhayo -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="professor">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="intesab.jpg" alt="Prof. Dr. Intesab Hussain Sadhayo" class="profile-pic">
+                        <span class="designation-badge">Dean</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Prof. Dr. Intesab Hussain Sadhayo</h3>
+                        <p class="designation">Professor / Dean</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E. (QUEST), M.S (Rennes, France), Ph.D (Paris, France)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:intesab@quest.edu.pk">intesab@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2539</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Prof. Dr. Fareed Ahmed Jokhio -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="professor">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="fareed.jpg" alt="Prof. Dr. Fareed Ahmed Jokhio" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Prof. Dr. Fareed Ahmed Jokhio</h3>
+                        <p class="designation">Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E (MUET), M.E (MUET), M.Sc (Halmstad University, Sweden), PhD</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:fajokhio@quest.edu.pk">fajokhio@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2148</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Dr. Irfana Memon -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="associate">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="irfana.jpg" alt="Dr. Irfana Memon" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Dr. Irfana Memon</h3>
+                        <p class="designation">Associate Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> PhD (Aix-Marseille University, France), Master (INSA Lyon, France), B.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:irfanahameed@quest.edu.pk">irfanahameed@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2131</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Dr. Fizza Abbas Alvi -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="associate">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="fiza.jpg" alt="Dr. Fizza Abbas Alvi" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Dr. Fizza Abbas Alvi</h3>
+                        <p class="designation">Associate Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> PhD (Hanyang University, South Korea), M.E (MUET), B.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:fizza_alvi@quest.edu.pk">fizza_alvi@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2610</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Dr. Mohammad Ali Soomro -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="assistant">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="muhamad.jpg" alt="Dr. Mohammad Ali Soomro" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Dr. Mohammad Ali Soomro</h3>
+                        <p class="designation">Assistant Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E (Mehran), M.E (NED), PhD (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:kalakot2@yahoo.com">kalakot2@yahoo.com</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2120</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Iftikhar Ahmed Koondhar -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="assistant">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="iftikhar.jpg" alt="Engr. Iftikhar Ahmed Koondhar" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Iftikhar Ahmed Koondhar</h3>
+                        <p class="designation">Assistant Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> M.E (Communication Systems and Networks), B.E (Computer Systems Engineering)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:iftikhar.ahmed@quest.edu.pk">iftikhar.ahmed@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 3270</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Zuhaib Ahmed Shaikh -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="assistant">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="zuhaib.jpg" alt="Engr. Zuhaib Ahmed Shaikh" class="profile-pic">
+                        <span class="on-leave">On Study Leave</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Zuhaib Ahmed Shaikh</h3>
+                        <p class="designation">Assistant Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E (QUEST), M.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:zuhaib.shaikh@quest.edu.pk">zuhaib.shaikh@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2638</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Dr. Abdul Wahid Memon -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="assistant">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="wahid.jpg" alt="Dr. Abdul Wahid Memon" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Dr. Abdul Wahid Memon</h3>
+                        <p class="designation">Assistant Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> PhD (France), M.S (Paris Sud 11, France), B.E (MUET)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:awam@quest.edu.pk">awam@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2636</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Agha Shiraz Khan Pathan -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="assistant">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="agha.jpg" alt="Engr. Agha Shiraz Khan Pathan" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Agha Shiraz Khan Pathan</h3>
+                        <p class="designation">Assistant Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E (QUEST), M.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2131</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Shahzana Memon -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="assistant">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="shahzana.jpg" alt="Engr. Shahzana Memon" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Shahzana Memon</h3>
+                        <p class="designation">Assistant Professor</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E (QUEST), M.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:shahzanamemon@hotmail.com">shahzanamemon@hotmail.com</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2131</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Abdul Qudoos Memon -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="assistant">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="qudoos.jpg" alt="Engr. Abdul Qudoos Memon" class="profile-pic">
+                        <span class="on-leave">On Study Leave</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Abdul Qudoos Memon</h3>
+                        <p class="designation">Faculty Member</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2131</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Beenish Qureshi Hashmi -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="lecturer">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="beenish.jpg" alt="Engr. Beenish Qureshi Hashmi" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Beenish Qureshi Hashmi</h3>
+                        <p class="designation">Lecturer</p>
+                        <p class="qualification"><strong>Qualification:</strong> M.E (in progress), B.E (QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:beenish@quest.edu.pk">beenish@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2131</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Aisha Jokhyo -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="lecturer">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="aisha.jpg" alt="Engr. Aisha Jokhyo" class="profile-pic">
+                        <span class="on-leave">On Study Leave</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Aisha Jokhyo</h3>
+                        <p class="designation">Lecturer</p>
+                        <p class="qualification"><strong>Qualification:</strong> BS (Computer Engineering) from COMSATS</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:aishajokhio@quest.edu.pk">aishajokhio@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2131</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Haseena Baloch -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="lab">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="haseena.jpg" alt="Engr. Haseena Baloch" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Haseena Baloch</h3>
+                        <p class="designation">Lab Engineer</p>
+                        <p class="qualification"><strong>Qualification:</strong> B.E (Computer Systems Engineering, QUEST)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:engrhaseenabaloch@quest.edu.pk">engrhaseenabaloch@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 2131</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Member: Engr. Dileep Kumar Lohana -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 faculty-card" data-category="lab">
+                <div class="card animate-card">
+                    <div class="profile-pic-container">
+                        <img src="dileep.jpg" alt="Engr. Dileep Kumar Lohana" class="profile-pic">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Engr. Dileep Kumar Lohana</h3>
+                        <p class="designation">Lab Engineer</p>
+                        <p class="qualification"><strong>Qualification:</strong> M.E (MUET), B.E (MUET)</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:dileep.kumar@quest.edu.pk">dileep.kumar@quest.edu.pk</a></p>
+                            <p><i class="fas fa-phone contact-icon"></i> Ext. 3297</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <i class="fas fa-user-graduate fa-3x mb-3"></i>
+            <h4>No faculty members found</h4>
+            <p>Try selecting a different category</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>Department of Computer Systems Engineering</p>
+            <p>Quaid-e-Awam University of Engineering, Science & Technology, Nawabshah</p>
+            <p>Phone: 0244-9370381-5</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Filter functionality
+            $('.filter-btn').click(function() {
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+
+                const filter = $(this).data('filter');
+
+                if (filter === 'all') {
+                    $('.faculty-card').fadeIn(300);
+                    $('#noResults').hide();
+                } else {
+                    $('.faculty-card').each(function() {
+                        if ($(this).data('category') === filter) {
+                            $(this).fadeIn(300);
+                        } else {
+                            $(this).fadeOut(300);
+                        }
+                    });
+
+                    // Show no results message if no cards match
+                    setTimeout(() => {
+                        if ($('.faculty-card[data-category="' + filter + '"]:visible').length === 0) {
+                            $('#noResults').fadeIn(300);
+                        } else {
+                            $('#noResults').hide();
+                        }
+                    }, 350);
+                }
+            });
+
+            // Animation on scroll
+            function animateCards() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+
+                    if (cardPosition < screenPosition) {
+                        card.classList.add('visible');
+                    }
+                });
+            }
+
+            // Initial check
+            animateCards();
+
+            // Check on scroll
+            window.addEventListener('scroll', animateCards);
+
+            // Smooth hover effects
+            $('.card').hover(
+                function() {
+                    $(this).find('.profile-pic').css('transform', 'scale(1.05)');
+                },
+                function() {
+                    $(this).find('.profile-pic').css('transform', 'scale(1)');
+                }
+            );
+        });
+    </script>
+</body>
+
+</html>

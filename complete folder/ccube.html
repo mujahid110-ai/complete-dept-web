@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C CUBE 2025 - Computer Systems Engineering Event | QUEST Nawabshah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --quest-blue: #0056b3;
+            --quest-gold: #f5a623;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        
+        .event-header {
+            background: linear-gradient(135deg, var(--primary), var(--quest-blue));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        
+        .event-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .event-title {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .event-subtitle {
+            font-size: 1.5rem;
+            margin: 1rem 0 0;
+            font-weight: 300;
+            animation: fadeIn 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .event-date {
+            display: inline-block;
+            background-color: var(--accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            animation: pulse 2s infinite 1s;
+        }
+        /* Sections */
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .section-title {
+            color: var(--quest-blue);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        /* About Section */
+        
+        .about-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            z-index: 0;
+        }
+        
+        .highlight-box p {
+            margin: 0.75rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight-box strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        /* Competitions */
+        
+        .competitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .competition-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .competition-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .competition-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+        
+        .competition-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .competition-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            transition: color 0.3s;
+        }
+        
+        .competition-item:hover .competition-icon {
+            color: var(--accent);
+        }
+        /* Schedule */
+        
+        .schedule-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .schedule-day {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .schedule-day:hover {
+            transform: translateY(-5px);
+        }
+        
+        .day-header {
+            background: linear-gradient(to right, var(--primary), var(--quest-blue));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .schedule-table th {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .schedule-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .schedule-table tr:hover td {
+            background-color: #f5f7fa;
+        }
+        /* Gallery */
+        
+        .gallery-section {
+            text-align: center;
+        }
+        
+        .gallery-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, #4267B2, #3b5998);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(59, 89, 152, 0.3);
+        }
+        
+        .gallery-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 89, 152, 0.4);
+        }
+        /* Department Info */
+        
+        .department-info {
+            text-align: center;
+            margin: 3rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .department-title {
+            color: var(--quest-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .department-subtitle {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.8rem 1.5rem;
+            background: var(--light);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+        /* Footer */
+        
+        .event-footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-text {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .event-title {
+                font-size: 2.5rem;
+            }
+            .event-subtitle {
+                font-size: 1.2rem;
+            }
+            .competitions-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            .section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="event-header">
+        <div class="container header-content">
+            <h1 class="event-title">C CUBE 2025</h1>
+            <p class="event-subtitle">Annual Technical Event by Computer Systems Engineering Department</p>
+            <div class="event-date">29-30 APRIL 2025</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">About The Event</h2>
+            <p class="about-text">The C CUBE 2025 was a two-day technical extravaganza organized by the Computer Systems Engineering Department of Quaid-e-Awam University of Engineering, Science & Technology, Nawabshah. This annual event brought together bright minds to showcase
+                their talents in various technical, creative, and gaming competitions.</p>
+
+            <p class="about-text">Held on April 29-30, 2025, C CUBE provided a platform for students to demonstrate their skills, compete with peers, and celebrate technological innovation. The event featured a diverse range of activities from programming challenges to creative
+                arts and esports tournaments.</p>
+
+            <div class="highlight-box">
+                <p><strong>Event Highlights:</strong></p>
+                <p><strong>• 13+ Competitions</strong> across technical, creative and gaming categories</p>
+                <p><strong>• 200+ Participants</strong> from various departments and institutions</p>
+                <p><strong>• Cash Prizes & Certificates</strong> for all winners and participants</p>
+                <p><strong>• Networking Opportunities</strong> with peers and faculty</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Competitions</h2>
+            <p>Explore the diverse range of competitions that were part of C CUBE 2025:</p>
+
+            <div class="competitions-grid">
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Graphic Designing</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-code"></i></div>
+                    <h3>Speed Programming</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web Designing</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-chalkboard"></i></div>
+                    <h3>Poster Presentations</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-microphone"></i></div>
+                    <h3>Technical Presentations</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-pencil-alt"></i></div>
+                    <h3>Drawing & Calligraphy</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>PUBG Tournament</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mini Militia</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Mobile Legends</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-fighter-jet"></i></div>
+                    <h3>Playstation Tekken</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-chess"></i></div>
+                    <h3>Chess Championship</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>Quiz Competitions</h3>
+                </div>
+                <div class="competition-item">
+                    <div class="competition-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Story Writing</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Event Schedule</h2>
+            <p>Relive the exciting two days of C CUBE 2025 through our event schedule:</p>
+
+            <div class="schedule-container">
+                <div class="schedule-day">
+                    <div class="day-header">Day 1 - April 29, 2025</div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Activity</th>
+                                <th>Venue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:30 - 9:00 AM</td>
+                                <td>Registration</td>
+                                <td>Central Library</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 10:00 AM</td>
+                                <td>Opening Ceremony</td>
+                                <td>Central Library</td>
+                            </tr>
+                            <tr>
+                                <td>10:00 - 10:30 AM</td>
+                                <td>Break</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 - 11:30 AM</td>
+                                <td>Quiz Chess (Round Matches)</td>
+                                <td>CSE Department</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 AM - 1:00 PM</td>
+                                <td>Project Exhibition & Poster Presentation</td>
+                                <td>CSE Department</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 AM - 12:30 PM</td>
+                                <td>Technical Presentations, Web Designing, Mini Militia</td>
+                                <td>CSE Department</td>
+                            </tr>
+                            <tr>
+                                <td>12:30 - 1:30 PM</td>
+                                <td>Speed Programming & Graphic Designing</td>
+                                <td>CSE Department</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="schedule-day">
+                    <div class="day-header">Day 2 - April 30, 2025</div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Activity</th>
+                                <th>Venue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:30 - 9:00 AM</td>
+                                <td>Registration</td>
+                                <td>CSE Department</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 10:00 AM</td>
+                                <td>Drawing & Calligraphy, Chess Finals</td>
+                                <td>CSE Department</td>
+                            </tr>
+                            <tr>
+                                <td>10:00 - 11:00 AM</td>
+                                <td>Story Writing, PUBG Tournament</td>
+                                <td>CSE Department</td>
+                            </tr>
+                            <tr>
+                                <td>11:00 - 11:30 AM</td>
+                                <td>Break</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 AM - 12:30 PM</td>
+                                <td>Tekken 5 Competition</td>
+                                <td>CSE Department</td>
+                            </tr>
+                            <tr>
+                                <td>12:30 - 2:30 PM</td>
+                                <td>Closing Ceremony & Prize Distribution</td>
+                                <td>Central Library</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gallery-section">
+            <h2 class="section-title">Event Gallery</h2>
+            <p>View photos and memories from C CUBE 2025 on our official Facebook page:</p>
+            <a href="https://web.facebook.com/CcubeCse/photos" class="gallery-link" target="_blank">
+                <i class="fab fa-facebook-f"></i> Visit Event Gallery
+            </a>
+        </section>
+
+        <div class="department-info">
+            <h3 class="department-title">Computer Systems Engineering Department</h3>
+            <p class="department-subtitle">Quaid-e-Awam University of Engineering, Science & Technology, Nawabshah</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <span>03422419609 (Muhammad Akwayad)</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <span>03480394588 (C CUBE Team)</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>ccubecse@quest.edu.pk</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="event-footer">
+        <div class="container">
+            <p class="footer-text">© 2025 Computer Systems Engineering Department, QUEST Nawabshah. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate competition items sequentially
+            const competitionItems = document.querySelectorAll('.competition-item');
+            competitionItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
+            });
+
+            // Add hover effect to schedule days
+            const scheduleDays = document.querySelectorAll('.schedule-day');
+            scheduleDays.forEach(day => {
+                day.addEventListener('mouseenter', () => {
+                    day.querySelector('.day-header').style.background = 'linear-gradient(to right, var(--accent), var(--secondary))';
+                });
+                day.addEventListener('mouseleave', () => {
+                    day.querySelector('.day-header').style.background = 'linear-gradient(to right, var(--primary), var(--quest-blue))';
+                });
+            });
+
+            // Highlight current day if event is happening
+            const eventDate = new Date('2025-04-29');
+            const today = new Date();
+
+            if (today.toDateString() === eventDate.toDateString()) {
+                const day1Header = document.querySelector('.schedule-day:nth-child(1) .day-header');
+                day1Header.innerHTML += ' <i class="fas fa-calendar-day"></i> <span>Today</span>';
+                day1Header.style.animation = 'pulse 2s infinite';
+            }
+
+            // Add smooth scroll to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        // Parallax effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.event-header');
+            const scrollPosition = window.pageYOffset;
+            header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+
+</html>

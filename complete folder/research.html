@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Official Research - CSE Department</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --primary-color: #0056b3;
+            --secondary-color: #003366;
+            --accent-color: #007bff;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --light-text: #6c757d;
+            --card-shadow: 0 10px 30px rgba(0, 86, 179, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            max-width: 1200px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .research-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            margin-bottom: 50px;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 86, 179, 0.2);
+        }
+        
+        .research-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .research-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .research-card:hover .research-img {
+            transform: scale(1.05);
+        }
+        
+        .research-content {
+            padding: 30px;
+        }
+        
+        .research-card h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .research-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+        
+        .research-card p {
+            font-size: 1.05rem;
+            color: var(--dark-text);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .research-card strong {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .research-card em {
+            font-style: italic;
+            color: var(--primary-color);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 8px 15px;
+            border-radius: 6px;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .back-link:hover {
+            color: #fff;
+            background-color: var(--accent-color);
+            text-decoration: none;
+            transform: translateX(-5px);
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover i {
+            transform: translateX(-3px);
+        }
+        
+        .badge {
+            background-color: var(--primary-color);
+            font-weight: 500;
+            padding: 6px 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .research-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .research-card h3 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Department
+        </a>
+        <h1 class="section-title" data-aos="fade-down">Research Highlights</h1>
+
+        <!-- Research 1: Hematological Analysis -->
+        <div class="research-card" data-aos="fade-up">
+            <div class="research-img-container">
+                <img src="hemtological.jpg" alt="Blood Cell Research" class="research-img">
+            </div>
+            <div class="research-content">
+                <div class="research-meta">
+                    <span class="badge rounded-pill">Deep Learning</span>
+                    <span class="badge rounded-pill">Medical Imaging</span>
+                    <span class="badge rounded-pill">CNN</span>
+                </div>
+                <h3>Hematological Analysis Through Deep Learning</h3>
+                <p>
+                    Conducted by <strong>Engr. Agha Shiraz A. Khan</strong> and <strong>Engr. Hudebia Dr. Intesab</strong> at the Department of Computer Systems Engineering, QUEST Nawabshah.
+                </p>
+                <p>
+                    Their groundbreaking study, titled <em>"Hematological Analysis Through Deep Learning: An Automated Approach to Peripheral Blood Cells (PBC) Classification"</em>, presents a novel automated framework for classifying peripheral blood
+                    cells using deep learning techniques such as Convolutional Neural Networks (CNNs).
+                </p>
+                <p>
+                    The research employs transfer learning, data augmentation, and robust dataset engineering to significantly improve diagnostic accuracy and efficiency in hematology, setting new clinical benchmarks for automated analysis.
+                </p>
+            </div>
+        </div>
+
+        <!-- Research 2: COVID-19 Detection -->
+        <div class="research-card" data-aos="fade-up">
+            <div class="research-img-container">
+                <img src="covid-19.jpg" alt="COVID-19 Detection Research" class="research-img">
+            </div>
+            <div class="research-content">
+                <div class="research-meta">
+                    <span class="badge rounded-pill">COVID-19 Detection</span>
+                    <span class="badge rounded-pill">X-Ray Analysis</span>
+                    <span class="badge rounded-pill">Medical AI</span>
+                </div>
+                <h3>SARS COVID-19 Detection from X-Rays Using CNNs</h3>
+                <p>
+                    A collaborative effort led by <strong>Javeriya Bhatti</strong> and supervised by <strong>ENGR. Agha Shiraz A. Khan</strong> demonstrates the use of deep learning in detecting COVID-19 and other pulmonary diseases through X-ray imaging.
+                </p>
+                <p>
+                    Leveraging CNNs on Kaggle and IEEE datasets, the team developed a model that evolved from binary to four-class classification (Covid+, Covid- (Normal), Viral Pneumonia, and Bacterial Pneumonia).
+                </p>
+                <p>
+                    The model achieved <strong>92.22%</strong> training and <strong>84.85%</strong> validation accuracy after 25 epochs—pioneering AI's impact in medical imaging.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-quart',
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for cards
+        const cards = document.querySelectorAll('.research-card');
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>

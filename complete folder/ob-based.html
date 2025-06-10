@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OB-Based Degree | Computer Systems Engineering</title>
+    <meta name="description" content="Explore the Outcome-Based Education (OBE) structure of the Computer Systems Engineering Department at QUEST Nawabshah.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+         :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #343a40;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background-color: white;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-bottom: none;
+        }
+        
+        .obe-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .obe-table th {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 500;
+            padding: 1rem;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .obe-table td {
+            padding: 0.75rem;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #dee2e6;
+        }
+        
+        .obe-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .obe-table tr:hover {
+            background-color: rgba(0, 123, 255, 0.05);
+        }
+        
+        .mapping-highlight {
+            background-color: rgba(52, 152, 219, 0.2);
+            font-weight: bold;
+        }
+        
+        .outcome-item {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-left: 4px solid var(--primary-color);
+            background-color: white;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .outcome-item:hover {
+            border-left: 4px solid var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .outcome-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            line-height: 2rem;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            background: var(--dark-bg);
+            color: #fff;
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-bg {
+                padding: 2rem 0;
+            }
+            .card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Adobe.png" alt="Logo" style="height: 40px;" class="me-2">
+                <strong>Computer Systems Engineering</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="programms.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ob-based.html">OB-Based</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-bg text-center">
+        <div class="container header-content">
+            <h1 class="display-5 fw-bold mb-3">Outcome-Based Education (OBE)</h1>
+            <p class="lead mb-4">A modern educational approach focusing on measuring student performance outcomes</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card bg-white text-dark p-4">
+                        <p class="mb-0">Our OB-based degree program in Computer Systems Engineering is designed to ensure that graduates achieve specific, measurable outcomes. This approach focuses on what students can actually do after they complete their education,
+                            rather than just what they were taught.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Program Learning Outcomes (PLOs)</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Our 5 Key Program Learning Outcomes</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="plo-list" class="list-group list-group-flush"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">CLO to PLO Mapping</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Course Learning Outcomes Mapping to Program Outcomes</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Each course in our curriculum has specific Course Learning Outcomes (CLOs) that are mapped to our Program Learning Outcomes (PLOs). This ensures alignment between individual courses and the overall program objectives.</p>
+
+                            <div class="table-responsive mt-4">
+                                <table class="table table-bordered obe-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Course Code</th>
+                                            <th>Course Title</th>
+                                            <th>CLO1</th>
+                                            <th>CLO2</th>
+                                            <th>CLO3</th>
+                                            <th>CLO4</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="clo-mapping-table">
+                                        <!-- Will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Mapping Legend:</strong>
+                                <span class="badge bg-primary me-2">PLO1</span>
+                                <span class="badge bg-success me-2">PLO2</span>
+                                <span class="badge bg-warning me-2">PLO3</span>
+                                <span class="badge bg-danger me-2">PLO4</span>
+                                <span class="badge bg-dark">PLO5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Assessment Process</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-clipboard-check fa-3x text-primary"></i>
+                            </div>
+                            <h4>Direct Assessment</h4>
+                            <p>Evaluation through exams, quizzes, projects, and presentations that directly measure student achievement of CLOs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-chart-bar fa-3x text-success"></i>
+                            </div>
+                            <h4>Indirect Assessment</h4>
+                            <p>Surveys, interviews, and alumni feedback that provide additional insights into program effectiveness.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-sync-alt fa-3x text-warning"></i>
+                            </div>
+                            <h4>Continuous Improvement</h4>
+                            <p>Regular review of assessment data to identify areas for improvement and update curriculum accordingly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Computer Systems Engineering Department, QUEST Nawabshah. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Program Learning Outcomes data
+        const plos = [{
+            code: "PLO1",
+            title: "Engineering Knowledge",
+            description: "Apply knowledge of mathematics, science, engineering fundamentals and computer systems engineering specialization to the solution of complex engineering problems."
+        }, {
+            code: "PLO2",
+            title: "Problem Analysis",
+            description: "Identify, formulate, research literature, and analyze complex engineering problems reaching substantiated conclusions using principles of mathematics, natural sciences and engineering sciences."
+        }, {
+            code: "PLO3",
+            title: "Design/Development of Solutions",
+            description: "Design solutions for complex engineering problems and design systems, components or processes that meet specified needs with appropriate consideration for public health and safety, cultural, societal, and environmental considerations."
+        }, {
+            code: "PLO4",
+            title: "Investigation",
+            description: "Conduct investigations of complex problems using research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of information to provide valid conclusions."
+        }, {
+            code: "PLO5",
+            title: "Modern Tool Usage",
+            description: "Create, select and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modeling, to complex engineering activities, with an understanding of the limitations."
+        }];
+
+        // Sample course data with CLO to PLO mapping
+        const courses = [{
+            code: "CSE-101",
+            title: "Introduction to Programming",
+            clos: [{
+                description: "Understand basic programming concepts",
+                plos: ["PLO1", "PLO5"]
+            }, {
+                description: "Write simple programs using a high-level language",
+                plos: ["PLO1", "PLO2", "PLO5"]
+            }, {
+                description: "Debug and test programs",
+                plos: ["PLO2", "PLO5"]
+            }, {
+                description: "Document program code",
+                plos: ["PLO3"]
+            }]
+        }, {
+            code: "CSE-201",
+            title: "Data Structures",
+            clos: [{
+                description: "Implement basic data structures",
+                plos: ["PLO1", "PLO3", "PLO5"]
+            }, {
+                description: "Analyze time and space complexity of algorithms",
+                plos: ["PLO2", "PLO4"]
+            }, {
+                description: "Select appropriate data structures for given problems",
+                plos: ["PLO2", "PLO3"]
+            }, {
+                description: "Solve problems using data structures",
+                plos: ["PLO1", "PLO2", "PLO3"]
+            }]
+        }, {
+            code: "CSE-301",
+            title: "Computer Networks",
+            clos: [{
+                description: "Explain network architectures and protocols",
+                plos: ["PLO1"]
+            }, {
+                description: "Design simple network topologies",
+                plos: ["PLO3"]
+            }, {
+                description: "Troubleshoot network problems",
+                plos: ["PLO2", "PLO4"]
+            }, {
+                description: "Use network simulation tools",
+                plos: ["PLO5"]
+            }]
+        }];
+
+        // Display PLOs
+        const ploList = document.getElementById('plo-list');
+        plos.forEach((plo, index) => {
+            const item = document.createElement('div');
+            item.className = 'outcome-item';
+            item.innerHTML = `
+                <div class="d-flex align-items-center mb-2">
+                    <span class="outcome-number">${index + 1}</span>
+                    <h5 class="mb-0">${plo.code}: ${plo.title}</h5>
+                </div>
+                <p class="ms-5 ps-2">${plo.description}</p>
+            `;
+            ploList.appendChild(item);
+        });
+
+        // Display CLO to PLO mapping table
+        const cloMappingTable = document.getElementById('clo-mapping-table');
+        courses.forEach(course => {
+            const row = document.createElement('tr');
+
+            // Course code and title cells
+            row.innerHTML = `
+                <td><strong>${course.code}</strong></td>
+                <td>${course.title}</td>
+            `;
+
+            // CLO cells
+            course.clos.forEach(clo => {
+                const cell = document.createElement('td');
+
+                // Create badge elements for each PLO
+                const ploBadges = clo.plos.map(plo => {
+                    const ploNumber = plo.replace('PLO', '');
+                    let badgeClass = 'bg-primary';
+
+                    // Assign different colors based on PLO number
+                    switch (ploNumber) {
+                        case '1':
+                            badgeClass = 'bg-primary';
+                            break;
+                        case '2':
+                            badgeClass = 'bg-success';
+                            break;
+                        case '3':
+                            badgeClass = 'bg-warning';
+                            break;
+                        case '4':
+                            badgeClass = 'bg-danger';
+                            break;
+                        case '5':
+                            badgeClass = 'bg-dark';
+                            break;
+                    }
+
+                    return `<span class="badge ${badgeClass} me-1">${plo}</span>`;
+                }).join('');
+
+                cell.innerHTML = `
+                    <div class="mb-1">${clo.description}</div>
+                    <div>${ploBadges}</div>
+                `;
+                row.appendChild(cell);
+            });
+
+            cloMappingTable.appendChild(row);
+        });
+
+        // Add hover effect to table rows
+        const tableRows = document.querySelectorAll('#clo-mapping-table tr');
+        tableRows.forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.classList.add('mapping-highlight');
+            });
+            row.addEventListener('mouseleave', function() {
+                this.classList.remove('mapping-highlight');
+            });
+        });
+    </script>
+</body>
+
+</html>
